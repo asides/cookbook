@@ -1,0 +1,15 @@
+p#notice = notice
+
+p
+  strong Qty:
+  = @ingredient_item.qty
+p
+  strong Ingredient:
+  = @ingredient_item.ingredient
+p
+  strong Measure:
+  = @ingredient_item.measure
+
+= link_to 'Edit', edit_ingredient_item_path(@ingredient_item)
+'|
+= link_to 'Back', ingredient_items_path

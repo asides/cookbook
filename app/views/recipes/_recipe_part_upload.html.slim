@@ -1,0 +1,18 @@
+.fileinput class="#{image_state f.object.image}" data-provides="fileinput"
+
+	.fileinput-new.thumbnail style="width: 160px; height: 100px;"
+	  img src="http://www.placehold.it/160x100"  
+
+	.fileinput-preview.fileinput-exists.thumbnail style="max-width: 160px; max-height: 100px;" data-trigger="#{if_exists f.object.image}"
+	  = image_tag f.object.image.thumb.url unless f.object.image.blank?
+
+	div
+	  span.btn.btn-default.btn-file
+	    span.fileinput-new Выбрать картинку
+	    span.fileinput-exists Изменить
+	    = f.file_field :image
+	  a.btn.btn-default.fileinput-exists data-dismiss="fileinput" href="#"  Удалить
+
+	= f.input_field :remove_image, :as => :hidden
+	= f.input_field :image_cache, :as => :hidden
+

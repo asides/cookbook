@@ -1,0 +1,56 @@
+.row
+  .col-md-7
+    = simple_form_for @recipe do |f|
+
+      = f.error_notification
+      .form-group
+        = render partial: 'file_upload', :locals => {f: f}
+      .form-group
+        = f.input :name
+      .form-group
+        /= select_tag :category_id, nested_options(Category.all), multiple: true, class: 'form-control'
+        = f.association :categories
+        /= f.input :categories do
+        /  = f.select :categories, nested_options(Category.all)
+
+      .form-group
+        = f.input :description
+      
+      .form-group
+        = f.input :complexity
+        .form-inline
+          = f.input :cooking_time
+      br
+      h5
+        strong Список ингредиентов
+      .form-group
+        #add_new_list.links
+          = link_to_add_association 'Добавить новый список ингредиентов', f, :ingredient_lists, data: {association_insertion_node:"#ingredient_lists", 
+            association_insertion_method: :append}
+      ul#search_ingredient
+      ul#pageTab.nav.nav-tabs
+        - @recipe.ingredient_lists.each_with_index do |list, index|
+          li class="#{'in active' if index==0}"
+            a.link-tab href="#page#{list.id ? list.id : "1"}"
+              - if list.name.blank?
+                | Без названия
+              - else
+                = list.name                
+              button class="close" ×      
+      
+      #ingredient_lists.tab-content
+        = f.simple_fields_for :ingredient_lists do |list|
+          = render 'ingredient_list_fields', f: list
+
+      h5
+        strong Пошаговый рецепт
+      #recipe_parts
+        = f.simple_fields_for :recipe_parts do |part|
+          = render 'recipe_part_fields', f: part
+      .form-group
+        #add_new_part.links
+          = link_to_add_association 'Добавить шаг', f, :recipe_parts
+      = f.input :is_draft, inline_label: 'Сохранить как черновик', label_html: { class: 'sr-only' }
+      = f.input :is_checked, inline_label: 'Отметить как проверенный', label_html: { class: 'sr-only' }
+
+      = f.button :submit, class: 'btn-primary'

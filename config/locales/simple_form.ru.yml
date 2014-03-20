@@ -1,0 +1,29 @@
+ru:
+  simple_form:
+    "да": 'Да'
+    "нет": 'Нет'
+    required:
+      text: 'обязательно'
+      mark: '*'
+      # You can uncomment the line below if you need to overwrite the whole required html.
+      # When using html, text and mark won't be used.
+      # html: '<abbr title="required">*</abbr>'
+    error_notification:
+      default_message: "Обратите внимание на ошибки:"
+    # Labels and hints examples
+    labels:
+      defaults:
+        password: 'Пароль'
+      recipe:
+        new:
+          name: 'Название'
+          description: 'Описание'
+          image: 'Главная картинка'
+          complexity: 'Сложность приготовления'
+          cooking_time: 'Время приготовления'
+          is_draft: 'Сохранить как черновик'
+          is_checked: 'Это проверенный рецепт'
+    # hints:
+    #   defaults:
+    #     username: 'User name to sign in.'
+    #     password: 'No special characters, please.'

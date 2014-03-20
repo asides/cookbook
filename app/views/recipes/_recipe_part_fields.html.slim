@@ -1,0 +1,7 @@
+.recipe_part.nested-fields.row.well
+	
+	= render partial: 'recipe_part_upload', :locals => {f: f}
+	= f.input :description
+	
+	.remove_part	
+		= link_to_remove_association "Удалить шаг", f

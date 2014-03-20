@@ -1,0 +1,15 @@
+p#notice = notice
+
+p
+  strong Image:
+  = @recipe_part.image
+p
+  strong Description:
+  = @recipe_part.description
+p
+  strong Recipe:
+  = @recipe_part.recipe
+
+= link_to 'Edit', edit_recipe_part_path(@recipe_part)
+'|
+= link_to 'Back', recipe_parts_path

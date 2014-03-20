@@ -1,0 +1,35 @@
+# == Schema Information
+#
+# Table name: recipes
+#
+#  id           :integer          not null, primary key
+#  name         :string(255)
+#  description  :text
+#  image        :string(255)
+#  complexity   :decimal(, )
+#  cooking_time :time
+#  is_draft     :boolean
+#  is_checked   :boolean
+#  created_at   :datetime
+#  updated_at   :datetime
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  description: MyText
+  image: MyString
+  complexity: 9.99
+  cooking_time: 2014-02-21 22:21:13
+  is_draft: false
+  is_checked: false
+
+two:
+  name: MyString
+  description: MyText
+  image: MyString
+  complexity: 9.99
+  cooking_time: 2014-02-21 22:21:13
+  is_draft: false
+  is_checked: false

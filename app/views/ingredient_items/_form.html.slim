@@ -1,0 +1,10 @@
+= simple_form_for(@ingredient_item) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.input :qty
+    = f.association :ingredient
+    = f.association :measure
+
+  .form-actions
+    = f.button :submit

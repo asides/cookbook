@@ -1,0 +1,27 @@
+p#notice = notice
+
+p
+  strong Название:
+  = @recipe.name
+p
+  strong Описание:
+  = @recipe.description
+p
+  strong Картинка:
+  = image_tag @recipe.image.thumb unless @recipe.image.blank?
+p
+  strong Сложность:
+  = @recipe.complexity
+p
+  strong Время приготовления:
+  = @recipe.cooking_time
+p
+  strong Черновик:
+  = @recipe.is_draft
+p
+  strong Проверенный:
+  = @recipe.is_checked
+
+= link_to 'Редактировать', edit_recipe_path(@recipe)
+'|
+= link_to 'Назад', recipes_path

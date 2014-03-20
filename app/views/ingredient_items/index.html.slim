@@ -1,0 +1,23 @@
+h1 Listing ingredient_items
+
+table
+  tr
+    th Qty
+    th Ingredient
+    th Measure
+    th
+    th
+    th
+
+  - @ingredient_items.each do |ingredient_item|
+    tr
+      td = ingredient_item.qty
+      td = ingredient_item.ingredient
+      td = ingredient_item.measure
+      td = link_to 'Show', ingredient_item
+      td = link_to 'Edit', edit_ingredient_item_path(ingredient_item)
+      td = link_to 'Destroy', ingredient_item, data: {:confirm => 'Are you sure?'}, :method => :delete
+
+br
+
+= link_to 'New Ingredient item', new_ingredient_item_path

@@ -1,0 +1,21 @@
+h1 Ингредиенты
+
+table.table.table-striped
+  tr
+    th Название
+    th Описание
+    th
+    th
+    th
+
+  - @ingredients.each do |ingredient|
+    tr
+      td = ingredient.name
+      td = ingredient.description
+      td = link_to 'Показать', ingredient
+      td = link_to 'Редактировать', edit_ingredient_path(ingredient)
+      td = link_to 'Удалить', ingredient, data: {:confirm => 'Are you sure?'}, :method => :delete
+
+br
+
+= link_to 'Создать новый ингредиент', new_ingredient_path

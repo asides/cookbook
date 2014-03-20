@@ -1,0 +1,58 @@
+doctype html
+html
+  head
+    title Книга рецептов
+    = stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true
+    = javascript_include_tag "application", "data-turbolinks-track" => true
+    = csrf_meta_tags
+  body
+  	nav.navbar.navbar-default role="navigation"
+  		.container-fluid
+  			.navbar-header
+  				button.navbar-toggle type="button" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"
+	  				span.sr-only Toggle navigation
+		        span.icon-bar
+		        span.icon-bar
+		        span.icon-bar
+		    	a class="navbar-brand" href="/" Книга рецептов
+		    .collapse.navbar-collapse#bs-example-navbar-collapse-1
+		    	
+		    	ul.nav.navbar-nav
+		    		
+		    		li.dropdown
+						  a.dropdown-toggle data-toggle="dropdown" href="#" 
+						    | Админка
+						    b.caret
+						  ul.dropdown-menu
+						    li
+						      = link_to 'Рецепты', :recipes
+						    li
+						      = link_to 'Категории', :categories
+						    li
+						    	= link_to 'Ингредиенты', :ingredients
+						    li
+						      = link_to 'Меры измерения', :measures
+						    
+						      
+						    li.divider
+						    li
+						      a href="#"  Separated link
+						    li.divider
+						    li
+						      a href="#"  One more separated link
+
+		    	ul.nav.navbar-nav.navbar-right
+		    		li
+		    			a href='#' Регистрация
+		    		li 
+		    			a href='#' Вход
+  	.container-fluid
+    	.row
+				.col-md-2
+					.btn-group-vertical
+						= link_to "Добавить рецепт", new_recipe_path, class: "btn btn-primary"
+						a.btn.btn-success href="/search_ingredient" Поиск по ингридиентам
+					p
+						ol.tree = just_tree Category.all
+				.col-md-10
+    				= yield

@@ -1,0 +1,23 @@
+# == Schema Information
+#
+# Table name: recipe_parts
+#
+#  id          :integer          not null, primary key
+#  image       :string(255)
+#  description :text
+#  recipe_id   :integer
+#  created_at  :datetime
+#  updated_at  :datetime
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  image: MyString
+  description: MyText
+  recipe_id: 
+
+two:
+  image: MyString
+  description: MyText
+  recipe_id: 

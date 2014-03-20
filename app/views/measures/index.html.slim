@@ -1,0 +1,21 @@
+h1 Меры измерения
+
+table.table.table-striped
+  tr
+    th Name
+    th Val
+    th
+    th
+    th
+
+  - @measures.each do |measure|
+    tr
+      td = measure.name
+      td = measure.val
+      td = link_to 'Show', measure
+      td = link_to 'Edit', edit_measure_path(measure)
+      td = link_to 'Destroy', measure, data: {:confirm => 'Are you sure?'}, :method => :delete
+
+br
+
+= link_to 'New Measure', new_measure_path

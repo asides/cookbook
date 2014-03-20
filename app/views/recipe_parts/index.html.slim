@@ -1,0 +1,23 @@
+h1 Listing recipe_parts
+
+table
+  tr
+    th Image
+    th Description
+    th Recipe
+    th
+    th
+    th
+
+  - @recipe_parts.each do |recipe_part|
+    tr
+      td = recipe_part.image
+      td = recipe_part.description
+      td = recipe_part.recipe
+      td = link_to 'Show', recipe_part
+      td = link_to 'Edit', edit_recipe_part_path(recipe_part)
+      td = link_to 'Destroy', recipe_part, data: {:confirm => 'Are you sure?'}, :method => :delete
+
+br
+
+= link_to 'New Recipe part', new_recipe_part_path

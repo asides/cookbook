@@ -1,0 +1,31 @@
+h1 Все рецепты
+
+table.table.table-striped
+  tr
+    th Name
+    th Description
+    th Image
+    th Complexity
+    th Cooking time
+    th Is draft
+    th Is checked
+    th
+    th
+    th
+
+  - @recipes.each do |recipe|
+    tr
+      td = recipe.name
+      td = recipe.description
+      td = image_tag recipe.image.preview.url
+      td = recipe.complexity
+      td = recipe.cooking_time
+      td = recipe.is_draft
+      td = recipe.is_checked
+      td = link_to 'Show', recipe
+      td = link_to 'Edit', edit_recipe_path(recipe)
+      td = link_to 'Destroy', recipe, data: {:confirm => 'Are you sure?'}, :method => :delete
+
+br
+
+= link_to 'Создать новый рецепт', new_recipe_path, class: 'btn btn-primary'

@@ -1,0 +1,10 @@
+= simple_form_for(@recipe_part) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.input :image
+    = f.input :description
+    = f.association :recipe
+
+  .form-actions
+    = f.button :submit

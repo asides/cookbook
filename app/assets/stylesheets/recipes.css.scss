@@ -1,0 +1,32 @@
+// Place all the styles related to the Recipes controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+@import "bootstrap/variables";
+@import "bootstrap/mixins";
+
+#ingredient_lists {
+	margin: 1em 0;
+	border-radius: 10px;
+	background-color: #F8F8EC;
+}
+#pageTab {
+	.close {
+		margin-left: 9px;
+	}
+}
+
+// .recipe_part {
+// 	.recipe_recipe_parts_description {
+// 		float: left;
+// 		@include clearfix;
+// 	}
+// 	.fileinput {
+// 		float: left;
+// 	}
+
+// 	.remove_part { 
+// 		@include clearfix;
+// 		margin: 10px 0;
+// 	}
+// 	@include clearfix;
+// }

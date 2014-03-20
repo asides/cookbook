@@ -1,0 +1,24 @@
+# == Schema Information
+#
+# Table name: ingredient_items
+#
+#  id                 :integer          not null, primary key
+#  qty                :decimal(, )
+#  ingredient_id      :integer
+#  measure_id         :integer
+#  created_at         :datetime
+#  updated_at         :datetime
+#  ingredient_list_id :integer
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  qty: 9.99
+  ingredient_id: 
+  measure_id: 
+
+two:
+  qty: 9.99
+  ingredient_id: 
+  measure_id: 
