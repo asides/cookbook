@@ -32,14 +32,13 @@ html
 						    	= link_to 'Ингредиенты', :ingredients
 						    li
 						      = link_to 'Меры измерения', :measures
-						    
-						      
-						    li.divider
-						    li
-						      a href="#"  Separated link
-						    li.divider
-						    li
-						      a href="#"  One more separated link
+						    					      
+						    / li.divider
+						    / li
+						    /   a href="#"  Separated link
+						    / li.divider
+						    / li
+						    /   a href="#"  One more separated link
 
 		    	ul.nav.navbar-nav.navbar-right
 		    		li
@@ -53,6 +52,6 @@ html
 						= link_to "Добавить рецепт", new_recipe_path, class: "btn btn-primary"
 						a.btn.btn-success href="/search_ingredient" Поиск по ингридиентам
 					p
-						ol.tree = just_tree Category.all
+						ol.tree = just_tree categories_tree
 				.col-md-10
     				= yield

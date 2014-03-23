@@ -1,8 +1,12 @@
 h1 Категории
 
-= render 'manage'
+ol.sortable_tree data-max-levels="5" data-rebuild-url="#{rebuild_categories_url}" 
+	= sortable_tree categories_tree
+
+hr
 
 = link_to 'Создать новую категорию', new_category_path, class: 'btn btn-success'
 
 h3 Тест выбора категорий
+
 = select_tag :recipe_category_ids, nested_options(@categories), multiple: true, class: 'form-control'

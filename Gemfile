@@ -18,7 +18,7 @@ gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.0.0'
 
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
-# gem 'therubyracer', platforms: :ruby
+gem 'therubyracer', platforms: :ruby
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
@@ -45,8 +45,8 @@ end
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
-gem 'puma'
 
+gem 'puma', group: :production
 
 gem 'russian', '~> 0.6.0'
 
@@ -65,27 +65,22 @@ gem 'ckeditor', github: 'galetahub/ckeditor', branch: 'master'
 
 gem 'devise'
 
-gem 'capistrano'
-gem 'capistrano-rbenv'
-gem 'capistrano-rails'
-gem 'capistrano-bundler'
-gem 'capistrano3-puma', github: "seuros/capistrano-puma"
-
 gem 'slim-rails'
-#gem 'less-rails'
-#gem 'kube-rails'
 gem 'bootstrap-sass', '~> 3.1.1'
 gem "select2-rails"
 
-gem 'awesome_nested_set' # or any similar gem (
-# gem 'nested_set'
+gem 'awesome_nested_set', github: 'collectiveidea/awesome_nested_set'
 gem "the_sortable_tree", github: 'the-teacher/the_sortable_tree'
 
 group :development do
+    gem 'capistrano'
+    gem 'capistrano-rbenv'
+    gem 'capistrano-rails'
+    gem 'capistrano-bundler'
+    gem 'capistrano3-puma', github: "seuros/capistrano-puma"
+
     gem 'guard-livereload', require: false
-    #gem 'rb-readline', github: 'luislavena/rb-readline', branch: 'master'
     gem 'awesome_print'
-    #gem 'pry', '0.9.12.2'
     gem 'pry', github: 'pry/pry', branch: 'master'
     gem 'pry-theme'
     gem 'pry-rails'

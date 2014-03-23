@@ -58,3 +58,5 @@
   true
 
 $ -> init_sortable_tree()
+$(document).on "page:load", (e) ->
+  init_sortable_tree()

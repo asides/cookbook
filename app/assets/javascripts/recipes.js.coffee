@@ -6,7 +6,6 @@
 ready = ->
   console.log("start")
   addTab = (item) ->
-    console.log("addTab function")
     pageId = new Date().getTime()
     
     $("#pageTab").append $("<li><a class='link-tab' href='#page" + pageId + "'>" + "Ингредиенты&nbsp;<button class=\"close\" title=\"Remove this page\" type=\"button\">×</button>" + "</a></li>")
@@ -18,7 +17,6 @@ ready = ->
   
   $("#pageTab").on "click", "a.link-tab .close", (e) ->
     e.preventDefault()
-    console.log("pageTab click close")
     tabId = $(this).parents("li").children("a").attr("href")
     $(tabId + " a.remove_fields").click()
     $(this).parents("li").remove "li"
@@ -27,7 +25,6 @@ ready = ->
 
   $("#pageTab").on "click", "a.link-tab", (e) ->
     e.preventDefault()
-    console.log("pageTab click")
     unless $(e.target).hasClass("close")
       $(this).tab "show"
     
@@ -47,7 +44,6 @@ ready = ->
           name: ingr
   )
 
-  console.log(ingredients)
   ingredients.initialize()
   
   $("#ingredient_lists .ingredient").typeahead null,
@@ -56,7 +52,6 @@ ready = ->
     source: ingredients.ttAdapter()
   
   $("#ingredient_lists").on "cocoon:after-insert", (e, insertedItem) ->
-    console.log("cocoon after-insert action")
     if $(e.target).hasClass('tab-content')
       addTab(insertedItem)
     $("input.ingredient", insertedItem).typeahead null,
@@ -67,7 +62,6 @@ ready = ->
   
   $(".fileinput").on( "clear.bs.fileinput", (e) ->
     $("input[id*=remove_image]", this).val("1")
-    console.log $("input[id*=remove_image]", this)
   ).on( "change.bs.fileinput", (e) ->
     $(this).next("input[id*=remove_image]").val("0")
 
@@ -76,21 +70,12 @@ ready = ->
 
     return
 
-  #####
-  #
-
- 
-
-  #
-  #####  
-
   $("form.simple_form").on "keyup keypress", (e) ->
     code = e.keyCode or e.which
     if code is 13
       e.preventDefault()
       false 
   
-  console.log("break") 
   f_tab = $("#ingredient_lists .tab-pane:first")
   f_tab.addClass("in active")
   if f_tab.attr("id") == "page"
@@ -100,7 +85,6 @@ ready = ->
 
 $(document).ready(ready)
 $(document).on('page:load', ready)
-
 
 
 
