@@ -138,6 +138,8 @@ GEM
       railties (>= 3.2.6, < 5)
       thread_safe (~> 0.1)
       warden (~> 1.2.3)
+    devise-russian (2.0.1.1)
+      devise
     elasticsearch (1.0.1)
       elasticsearch-api (= 1.0.1)
       elasticsearch-transport (= 1.0.1)
@@ -318,6 +320,7 @@ DEPENDENCIES
   cocoon
   coffee-rails (~> 4.0.0)
   devise
+  devise-russian
   elasticsearch-model!
   elasticsearch-rails!
   guard-livereload

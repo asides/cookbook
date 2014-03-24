@@ -1,10 +1,13 @@
 Cookbook::Application.routes.draw do
   resources :categories do
     collection do
+      get :nested_options
       get :manage
+      get :node_manage
+      get :expand
 
-      # required for Sortable GUI server side actions
       post :rebuild
+      post :expand_node
     end
   end
 

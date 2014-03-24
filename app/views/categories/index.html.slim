@@ -1,7 +1,8 @@
 h1 Категории
 
-ol.sortable_tree data-max-levels="5" data-rebuild-url="#{rebuild_categories_url}" 
-	= sortable_tree categories_tree
+ol.sortable_tree.expandable data-max-levels="5" data-rebuild-url="#{rebuild_categories_url}" data-expand-node-url="#{expand_node_categories_url}" data-cookie-store="true" data-cookie-scope="#{@categories.first.class}"
+	= expandable_tree Category.nested_set.roots.select('id, title, parent_id') 
+	/#categories_tree
 
 hr
 

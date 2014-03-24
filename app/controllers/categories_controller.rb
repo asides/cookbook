@@ -4,6 +4,24 @@ class CategoriesController < ApplicationController
 
   before_action :set_category , only: [:show, :edit, :update, :destroy]
 
+  def nested_options
+    @categories = Category.nested_set.select('id, title, parent_id').limit(15)
+  end
+
+  def manage
+    @categories = Category.nested_set.select('id, title, parent_id')
+  end
+
+  def node_manage
+    @root = Category.root
+    @categories = @root.self_and_descendants.nested_set.select('id, title, parent_id').limit(15)
+    render template: 'categories/manage'
+  end
+
+  def expand
+    @categories = Category.nested_set.roots.select('id, title, parent_id')
+  end
+
   # GET /categories
   # GET /categories.json
   def index
