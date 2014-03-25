@@ -3,7 +3,7 @@ ru:
     "да": 'Да'
     "нет": 'Нет'
     required:
-      text: 'обязательно'
+      text: 'Поле обязательно для заполнения'
       mark: '*'
       # You can uncomment the line below if you need to overwrite the whole required html.
       # When using html, text and mark won't be used.
@@ -13,7 +13,10 @@ ru:
     # Labels and hints examples
     labels:
       defaults:
+        email: 'E-mail'
         password: 'Пароль'
+        password_confirmation: 'Подтверждение пароля'
+        remember_me: 'Запомнить меня'
       recipe:
         new:
           name: 'Название'

@@ -23,3 +23,10 @@
  *= require jquery.ui.all
  *= require_tree .
  */
+
+.col-center-block {
+    float: none !important;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}

@@ -41,13 +41,15 @@ html
 			    		li =link_to 'Вход', new_user_session_path
 
   	.container-fluid
-    	.row
-				.col-md-2
-					- if user_signed_in?
+    	- if user_signed_in?
+	    	.row
+					.col-md-2
 						.btn-group-vertical
 							= link_to "Добавить рецепт", new_recipe_path, class: "btn btn-primary"
-							a.btn.btn-success href="/search_ingredient" Поиск по ингридиентам
+							a.btn.btn-success href="/search_ingredient" Ингредиенты json
 						p
 							ol.tree = just_tree categories_tree
-				.col-md-10
-    				= yield
+					.col-md-10
+	    				= yield
+	    - else
+	    	= yield
