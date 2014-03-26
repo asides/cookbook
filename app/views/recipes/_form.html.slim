@@ -15,11 +15,31 @@
 
       .form-group
         = f.input :description
-      
       .form-group
-        = f.input :complexity
-        .form-inline
-          = f.input :cooking_time
+          = f.input :complexity, :collection => complexity_options
+      / .form-group
+      /   /= f.collection_radio_buttons :complexity, [[true, 'Yes'] ,[false, 'No']], :first, :last
+      /   h5: strong Сложность приготовления
+      /   .btn-group data-toggle="buttons" 
+      /     label.btn.btn-default
+      /       input#option1 name="recipe[complexity]" type="radio" value="1" 
+      /         | Очень легко        
+      /     label.btn.btn-default
+      /       input#option1 name="recipe[complexity]" type="radio" value="2" 
+      /         | Легко
+      /     label.btn.btn-default
+      /       input#option2 name="recipe[complexity]" type="radio" value="3"
+      /         | Средне
+      /     label.btn.btn-default
+      /       input#option3 name="recipe[complexity]" type="radio" value="4"
+      /         | Сложно
+      /     label.btn.btn-default
+      /       input#option3 name="recipe[complexity]" type="radio" value="5"
+      /         | Мастер-шеф
+      
+  
+      .form-inline
+        = f.input :cooking_time
       br
       h5
         strong Список ингредиентов
@@ -50,7 +70,7 @@
       .form-group
         #add_new_part.links
           = link_to_add_association 'Добавить шаг', f, :recipe_parts
-      = f.input :is_draft, inline_label: 'Сохранить как черновик', label_html: { class: 'sr-only' }
-      = f.input :is_checked, inline_label: 'Отметить как проверенный', label_html: { class: 'sr-only' }
+      = f.input :is_draft
+      = f.input :is_checked
 
       = f.button :submit, class: 'btn-primary'

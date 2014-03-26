@@ -22,6 +22,8 @@ class Recipe < ActiveRecord::Base
 	has_many :ingredient_lists, dependent: :destroy
 	has_many :recipe_parts, dependent: :destroy
 
+	serialize :complexity_options
+
 	accepts_nested_attributes_for :ingredient_lists, reject_if: :all_blank, allow_destroy: true
 	accepts_nested_attributes_for :recipe_parts, reject_if: :all_blank, allow_destroy: true
 	accepts_nested_attributes_for :categories, reject_if: :all_blank, allow_destroy: true

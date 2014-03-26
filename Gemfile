@@ -62,6 +62,7 @@ gem 'twitter-typeahead-rails', :git => "git://github.com/yourabi/twitter-typeahe
 
 gem 'carrierwave'
 gem 'mini_magick'
+
 gem 'ckeditor', github: 'galetahub/ckeditor', branch: 'master'
 
 gem 'devise'

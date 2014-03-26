@@ -18,10 +18,13 @@ class Ingredient < ActiveRecord::Base
 	has_many :ingredient_items #, :uniq => true
 	has_many :ingredient_lists, through: :ingredient_items
 
+	validates :name, presence: true
+	
 	before_save :capname
 
 	accepts_nested_attributes_for :ingredient_items, reject_if: :all_blank
 	accepts_nested_attributes_for :ingredient_lists, reject_if: :all_blank
+	
 	# settings  index: { number_of_shards: 1 },
 	# 					analysis: { 
 							
