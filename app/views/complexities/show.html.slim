@@ -1,0 +1,12 @@
+p#notice = notice
+
+p
+  strong Title:
+  = @complexity.title
+p
+  strong Order:
+  = @complexity.order
+
+= link_to 'Edit', edit_complexity_path(@complexity)
+'|
+= link_to 'Back', complexities_path

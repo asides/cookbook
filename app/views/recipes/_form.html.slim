@@ -1,52 +1,20 @@
 .row
-  .col-md-7
-    = simple_form_for @recipe do |f|
-
+  .col-md-10
+    = simple_form_for @recipe, wrapper: 'horizontal_form', html: { class: 'form-horizontal' } do |f|
       = f.error_notification
-      .form-group
-        = render partial: 'file_upload', :locals => {f: f}
-      .form-group
-        = f.input :name
-      .form-group
-        /= select_tag :category_id, nested_options(Category.all), multiple: true, class: 'form-control'
-        = f.association :categories
-        /= f.input :categories do
-        /  = f.select :categories, nested_options(Category.all)
 
-      .form-group
-        = f.input :description
-      .form-group
-          = f.input :complexity, :collection => complexity_options
-      / .form-group
-      /   /= f.collection_radio_buttons :complexity, [[true, 'Yes'] ,[false, 'No']], :first, :last
-      /   h5: strong Сложность приготовления
-      /   .btn-group data-toggle="buttons" 
-      /     label.btn.btn-default
-      /       input#option1 name="recipe[complexity]" type="radio" value="1" 
-      /         | Очень легко        
-      /     label.btn.btn-default
-      /       input#option1 name="recipe[complexity]" type="radio" value="2" 
-      /         | Легко
-      /     label.btn.btn-default
-      /       input#option2 name="recipe[complexity]" type="radio" value="3"
-      /         | Средне
-      /     label.btn.btn-default
-      /       input#option3 name="recipe[complexity]" type="radio" value="4"
-      /         | Сложно
-      /     label.btn.btn-default
-      /       input#option3 name="recipe[complexity]" type="radio" value="5"
-      /         | Мастер-шеф
-      
-  
-      .form-inline
-        = f.input :cooking_time
-      br
-      h5
-        strong Список ингредиентов
-      .form-group
-        #add_new_list.links
-          = link_to_add_association 'Добавить новый список ингредиентов', f, :ingredient_lists, data: {association_insertion_node:"#ingredient_lists", 
-            association_insertion_method: :append}
+      = render partial: 'file_upload', :locals => {f: f}
+      hr
+      = f.input :name
+      = f.association :categories
+      = f.input :description
+      = f.association :complexity
+      = f.association :cooking_time
+      hr
+      h4: strong Список ингредиентов
+      #add_new_list.links
+        = link_to_add_association 'Добавить новый список ингредиентов', f, :ingredient_lists, data: {association_insertion_node:"#ingredient_lists", 
+          association_insertion_method: :append}
       ul#search_ingredient
       ul#pageTab.nav.nav-tabs
         - @recipe.ingredient_lists.each_with_index do |list, index|
@@ -62,15 +30,39 @@
         = f.simple_fields_for :ingredient_lists do |list|
           = render 'ingredient_list_fields', f: list
 
-      h5
-        strong Пошаговый рецепт
+      h4: strong Пошаговый рецепт
       #recipe_parts
         = f.simple_fields_for :recipe_parts do |part|
           = render 'recipe_part_fields', f: part
-      .form-group
-        #add_new_part.links
-          = link_to_add_association 'Добавить шаг', f, :recipe_parts
-      = f.input :is_draft
+      
+      #add_new_part.links
+        = link_to_add_association 'Добавить шаг', f, :recipe_parts
+      = f.input :is_draft, as: :boolean
       = f.input :is_checked
 
       = f.button :submit, class: 'btn-primary'
+    
+
+
+/= select_tag :category_id, nested_options(Category.all), multiple: true, class: 'form-control'
+/= f.input :categories do
+/  = f.select :categories, nested_options(Category.all)
+
+/   /= f.collection_radio_buttons :complexity, [[true, 'Yes'] ,[false, 'No']], :first, :last
+/   h5: strong Сложность приготовления
+/   .btn-group data-toggle="buttons" 
+/     label.btn.btn-default
+/       input#option1 name="recipe[complexity]" type="radio" value="1" 
+/         | Очень легко        
+/     label.btn.btn-default
+/       input#option1 name="recipe[complexity]" type="radio" value="2" 
+/         | Легко
+/     label.btn.btn-default
+/       input#option2 name="recipe[complexity]" type="radio" value="3"
+/         | Средне
+/     label.btn.btn-default
+/       input#option3 name="recipe[complexity]" type="radio" value="4"
+/         | Сложно
+/     label.btn.btn-default
+/       input#option3 name="recipe[complexity]" type="radio" value="5"
+/         | Мастер-шеф

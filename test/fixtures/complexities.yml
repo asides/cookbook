@@ -1,0 +1,20 @@
+# == Schema Information
+#
+# Table name: complexities
+#
+#  id         :integer          not null, primary key
+#  title      :string(255)
+#  order      :integer
+#  created_at :datetime
+#  updated_at :datetime
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  order: 1
+
+two:
+  title: MyString
+  order: 1

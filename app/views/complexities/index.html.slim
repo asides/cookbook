@@ -1,0 +1,21 @@
+h1 Listing complexities
+
+table
+  tr
+    th Title
+    th Order
+    th
+    th
+    th
+
+  - @complexities.each do |complexity|
+    tr
+      td = complexity.title
+      td = complexity.order
+      td = link_to 'Show', complexity
+      td = link_to 'Edit', edit_complexity_path(complexity)
+      td = link_to 'Destroy', complexity, data: {:confirm => 'Are you sure?'}, :method => :delete
+
+br
+
+= link_to 'New Complexity', new_complexity_path

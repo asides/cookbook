@@ -1,4 +1,8 @@
 Cookbook::Application.routes.draw do
+  resources :cooking_times
+
+  resources :complexities
+
   resources :categories do
     collection do
       get :nested_options

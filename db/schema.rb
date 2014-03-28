@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140318202101) do
+ActiveRecord::Schema.define(version: 20140328084757) do
 
   create_table "categories", force: true do |t|
     t.string   "title"
@@ -43,6 +43,20 @@ ActiveRecord::Schema.define(version: 20140318202101) do
 
   add_index "ckeditor_assets", ["assetable_type", "assetable_id"], name: "idx_ckeditor_assetable"
   add_index "ckeditor_assets", ["assetable_type", "type", "assetable_id"], name: "idx_ckeditor_assetable_type"
+
+  create_table "complexities", force: true do |t|
+    t.string   "title"
+    t.integer  "order"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "cooking_times", force: true do |t|
+    t.string   "title"
+    t.integer  "order"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "ingredient_items", force: true do |t|
     t.decimal  "qty"
@@ -96,13 +110,16 @@ ActiveRecord::Schema.define(version: 20140318202101) do
     t.string   "name"
     t.text     "description"
     t.string   "image"
-    t.decimal  "complexity"
-    t.time     "cooking_time"
     t.boolean  "is_draft"
     t.boolean  "is_checked"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "complexity_id"
+    t.integer  "cooking_time_id"
   end
+
+  add_index "recipes", ["complexity_id"], name: "index_recipes_on_complexity_id"
+  add_index "recipes", ["cooking_time_id"], name: "index_recipes_on_cooking_time_id"
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false

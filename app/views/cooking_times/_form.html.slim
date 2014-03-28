@@ -1,0 +1,9 @@
+= simple_form_for(@cooking_time) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.input :title
+    = f.input :order
+
+  .form-actions
+    = f.button :submit

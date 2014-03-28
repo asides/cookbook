@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.4'
-gem 'rails-i18n', github: 'svenfuchs/rails-i18n', branch: 'master'
+gem 'rails-i18n'
 
 
 # Use sqlite3 as the database for Active Record
@@ -51,7 +51,7 @@ end
 gem 'puma', group: :production
 
 
-gem 'simple_form'
+gem 'simple_form', github: 'plataformatec/simple_form'
 
 gem "cocoon"
 

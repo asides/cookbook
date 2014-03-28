@@ -1,0 +1,12 @@
+p#notice = notice
+
+p
+  strong Title:
+  = @cooking_time.title
+p
+  strong Order:
+  = @cooking_time.order
+
+= link_to 'Edit', edit_cooking_time_path(@cooking_time)
+'|
+= link_to 'Back', cooking_times_path

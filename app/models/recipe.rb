@@ -2,23 +2,26 @@
 #
 # Table name: recipes
 #
-#  id           :integer          not null, primary key
-#  name         :string(255)
-#  description  :text
-#  image        :string(255)
-#  complexity   :decimal(, )
-#  cooking_time :time
-#  is_draft     :boolean
-#  is_checked   :boolean
-#  created_at   :datetime
-#  updated_at   :datetime
+#  id              :integer          not null, primary key
+#  name            :string(255)
+#  description     :text
+#  image           :string(255)
+#  is_draft        :boolean
+#  is_checked      :boolean
+#  created_at      :datetime
+#  updated_at      :datetime
+#  complexity_id   :integer
+#  cooking_time_id :integer
 #
 
 class Recipe < ActiveRecord::Base
 	mount_uploader :image, RecipePhotoUploader
 	
+	belongs_to :complexity
+	belongs_to :cooking_time
+
 	has_and_belongs_to_many :categories
-	
+
 	has_many :ingredient_lists, dependent: :destroy
 	has_many :recipe_parts, dependent: :destroy
 
