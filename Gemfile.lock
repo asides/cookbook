@@ -1,11 +1,4 @@
 GIT
-  remote: git://github.com/collectiveidea/awesome_nested_set.git
-  revision: 08d522ad02ad6c0fff922fef9e96ae7a210a1b56
-  specs:
-    awesome_nested_set (3.0.0.rc.3)
-      activerecord (>= 4.0.0, < 5)
-
-GIT
   remote: git://github.com/ctran/annotate_models.git
   revision: ed327d5a15226d0b5f78ab1d47649c0fdab66c8f
   specs:
@@ -85,6 +78,8 @@ GEM
       tzinfo (~> 0.3.37)
     arel (4.0.2)
     atomic (1.1.16)
+    awesome_nested_set (2.1.6)
+      activerecord (>= 3.0.0)
     awesome_print (1.2.0)
     bcrypt (3.1.7)
     bootstrap-sass (3.1.1.0)
@@ -301,7 +296,7 @@ PLATFORMS
 
 DEPENDENCIES
   annotate!
-  awesome_nested_set!
+  awesome_nested_set
   awesome_print
   bootstrap-sass (~> 3.1.1)
   capistrano
