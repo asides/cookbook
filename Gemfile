@@ -51,19 +51,19 @@ end
 gem 'puma', group: :production
 
 
-gem 'simple_form', github: 'plataformatec/simple_form'
+gem 'simple_form', github: 'plataformatec/simple_form', branch: 'master'
 
 gem "cocoon"
 
-gem 'elasticsearch-model', git: 'git://github.com/elasticsearch/elasticsearch-rails.git'
-gem 'elasticsearch-rails', git: 'git://github.com/elasticsearch/elasticsearch-rails.git'
+gem 'elasticsearch-model' #, git: 'git://github.com/elasticsearch/elasticsearch-rails.git'
+gem 'elasticsearch-rails' #, git: 'git://github.com/elasticsearch/elasticsearch-rails.git'
 
 gem 'twitter-typeahead-rails', :git => "git://github.com/yourabi/twitter-typeahead-rails.git"
 
 gem 'carrierwave'
 gem 'mini_magick'
 
-gem 'ckeditor', github: 'galetahub/ckeditor', branch: 'master'
+gem 'ckeditor' #, github: 'galetahub/ckeditor', branch: 'master'
 
 gem 'devise'
 
