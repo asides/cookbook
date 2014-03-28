@@ -12,7 +12,10 @@
 
 /tmp
 /config/database.yml
+
 /Procfile
+/Capfile
+
 /config/deploy.rb
 /config/deploy/*
 /shared
