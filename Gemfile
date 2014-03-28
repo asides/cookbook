@@ -71,7 +71,7 @@ gem 'slim-rails'
 gem 'bootstrap-sass', '~> 3.1.1'
 gem "select2-rails"
 
-gem 'awesome_nested_set', github: 'collectiveidea/awesome_nested_set'
+gem 'awesome_nested_set'
 gem "the_sortable_tree", github: 'the-teacher/the_sortable_tree'
 
 group :development do
