@@ -24,14 +24,12 @@ html
 							    | Админка
 							    b.caret
 							  ul.dropdown-menu
-							    li
-							      = link_to 'Рецепты', :recipes
-							    li
-							      = link_to 'Категории', :categories
-							    li
-							    	= link_to 'Ингредиенты', :ingredients
-							    li
-							      = link_to 'Меры измерения', :measures
+							    li= link_to 'Рецепты', :recipes
+							    li= link_to 'Категории', :categories
+							    li= link_to 'Ингредиенты', :ingredients
+							    li= link_to 'Меры измерения', :measures
+							    li= link_to 'Время приготовления', :cooking_times
+							    li= link_to 'Сложность', :complexities
 
 		    	ul.nav.navbar-nav.navbar-right
 		    		- if user_signed_in? 
