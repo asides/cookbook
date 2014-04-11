@@ -1,0 +1,12 @@
+.nested-fields.well.well-sm 
+	-unless f.object.errors.blank?
+		.alert.alert-danger
+			= f.object.errors.full_messages.to_sentence
+	= link_to_remove_association "Удалить", f, class: 'btn btn-default btn-sm'
+
+	- if cid = f.object.category_id
+		- cat=Category.find cid
+		= cat.self_and_ancestors.map(&:title).join " >> "
+	- else
+		= select_tag '', options_from_collection_for_select(Category.where(depth: 0), "id", "title"), { include_blank: true, id: '' }
+		= f.hidden_field :category_id, class: 'category_id'

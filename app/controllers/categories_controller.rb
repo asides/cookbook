@@ -2,7 +2,7 @@ class CategoriesController < ApplicationController
   include TheSortableTreeController::Rebuild
   include TheSortableTreeController::ExpandNode
 
-  before_action :set_category , only: [:show, :edit, :update, :destroy]
+  before_action :set_category , only: [:show, :edit, :update, :destroy, :nested]
 
   def nested_options
     @categories = Category.nested_set.select('id, title, parent_id').limit(15)
@@ -16,6 +16,14 @@ class CategoriesController < ApplicationController
     @root = Category.root
     @categories = @root.self_and_descendants.nested_set.select('id, title, parent_id').limit(15)
     render template: 'categories/manage'
+  end
+
+  def nested
+    @categories = @category.children.select('id, title')
+    # @root = Category.find params[:id]
+    # @categories = @root.self_and_descendants.nested_set.select('id, title, parent_id').limit(15)
+    #render json: @category.children.select('id, title')
+    render 'categories/nested', layout: false
   end
 
   def expand

@@ -1,0 +1,2 @@
+- if @categories.present?
+	= select_tag "", options_from_collection_for_select(@categories, "id", "title"), { include_blank: true, id: '' }

@@ -16,5 +16,6 @@ class Category < ActiveRecord::Base
 	acts_as_nested_set
 	include TheSortableTree::Scopes
 
-	has_and_belongs_to_many :recipes
+	has_many :recipes_categories
+	has_many :recipes, through: :recipes_categories
 end

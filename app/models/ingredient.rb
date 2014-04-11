@@ -18,7 +18,7 @@ class Ingredient < ActiveRecord::Base
 	has_many :ingredient_items #, :uniq => true
 	has_many :ingredient_lists, through: :ingredient_items
 
-	validates :name, presence: true
+	#validates :name, presence: true
 	
 	before_save :capname
 

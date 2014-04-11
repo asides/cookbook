@@ -28,3 +28,4 @@
 //= require expandable_tree/hashchange
 //= require expandable_tree/initializer
 //= require_tree .
+

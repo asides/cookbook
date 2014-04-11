@@ -1,0 +1,7 @@
+h4: strong Пошаговый рецепт
+#recipe_parts
+  = f.simple_fields_for :recipe_parts do |part|
+    = render 'recipe_part_fields', f: part
+
+#add_new_part.links
+  = link_to_add_association 'Добавить шаг', f, :recipe_parts

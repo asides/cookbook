@@ -20,7 +20,9 @@ class Recipe < ActiveRecord::Base
 	belongs_to :complexity
 	belongs_to :cooking_time
 
-	has_and_belongs_to_many :categories
+	has_many :recipes_categories, dependent: :destroy
+	
+	has_many :categories, through: :recipes_categories
 
 	has_many :ingredient_lists, dependent: :destroy
 	has_many :recipe_parts, dependent: :destroy
@@ -30,7 +32,7 @@ class Recipe < ActiveRecord::Base
 	accepts_nested_attributes_for :ingredient_lists, reject_if: :all_blank, allow_destroy: true
 	accepts_nested_attributes_for :recipe_parts, reject_if: :all_blank, allow_destroy: true
 	accepts_nested_attributes_for :categories, reject_if: :all_blank, allow_destroy: true
-	#accepts_nested_attributes_for :recipe_photo_uploader
+	accepts_nested_attributes_for :recipes_categories, reject_if: :all_blank, allow_destroy: true
 
 	
 	validates :name, presence: true,length: { minimum: 2 }

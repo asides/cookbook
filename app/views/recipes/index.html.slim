@@ -17,9 +17,9 @@ table.table.table-striped
     tr
       td = recipe.name
       td = recipe.description
-      td = image_tag recipe.image.preview.url
-      td = recipe.complexity
-      td = recipe.cooking_time
+      td = image_tag(recipe.image.preview.url) if recipe.image.preview.url
+      td = recipe.complexity.title if recipe.complexity
+      td = recipe.cooking_time.title if recipe.cooking_time
       td = recipe.is_draft
       td = recipe.is_checked
       td = link_to 'Show', recipe

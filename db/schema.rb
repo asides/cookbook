@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140328084757) do
+ActiveRecord::Schema.define(version: 20140407205815) do
 
   create_table "categories", force: true do |t|
     t.string   "title"
@@ -21,11 +21,6 @@ ActiveRecord::Schema.define(version: 20140328084757) do
     t.integer  "lft"
     t.integer  "rgt"
     t.integer  "depth"
-  end
-
-  create_table "categories_recipes", force: true do |t|
-    t.integer "category_id"
-    t.integer "recipe_id"
   end
 
   create_table "ckeditor_assets", force: true do |t|
@@ -120,6 +115,16 @@ ActiveRecord::Schema.define(version: 20140328084757) do
 
   add_index "recipes", ["complexity_id"], name: "index_recipes_on_complexity_id"
   add_index "recipes", ["cooking_time_id"], name: "index_recipes_on_cooking_time_id"
+
+  create_table "recipes_categories", force: true do |t|
+    t.integer  "recipe_id"
+    t.integer  "category_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "recipes_categories", ["category_id"], name: "index_recipes_categories_on_category_id"
+  add_index "recipes_categories", ["recipe_id"], name: "index_recipes_categories_on_recipe_id"
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false

@@ -1,68 +1,33 @@
 .row
   .col-md-10
-    = simple_form_for @recipe, wrapper: 'horizontal_form', html: { class: 'form-horizontal' } do |f|
+    = simple_form_for @recipe do |f|
+
       = f.error_notification
-
-      = render partial: 'file_upload', :locals => {f: f}
-      hr
-      = f.input :name
-      = f.association :categories
-      = f.input :description
-      = f.association :complexity
-      = f.association :cooking_time
-      hr
-      h4: strong Список ингредиентов
-      #add_new_list.links
-        = link_to_add_association 'Добавить новый список ингредиентов', f, :ingredient_lists, data: {association_insertion_node:"#ingredient_lists", 
-          association_insertion_method: :append}
-      ul#search_ingredient
-      ul#pageTab.nav.nav-tabs
-        - @recipe.ingredient_lists.each_with_index do |list, index|
-          li class="#{'in active' if index==0}"
-            a.link-tab href="#page#{list.id ? list.id : "1"}"
-              - if list.name.blank?
-                | Без названия
-              - else
-                = list.name                
-              button class="close" ×      
       
-      #ingredient_lists.tab-content
-        = f.simple_fields_for :ingredient_lists do |list|
-          = render 'ingredient_list_fields', f: list
+      ul.nav.nav-pills
+        li.active: a data-toggle="tab" href="#main_info_tab"        Основная информация
+        li:        a data-toggle="tab" href="#file_upload_tab"      Главное фото
+        li:        a data-toggle="tab" href="#categories_tab"       Категории
+        li:        a data-toggle="tab" href="#ingredient_lists_tab" Ингредиенты
+        li:        a data-toggle="tab" href="#recipe_parts_tab"     Пошаговый рецепт
 
-      h4: strong Пошаговый рецепт
-      #recipe_parts
-        = f.simple_fields_for :recipe_parts do |part|
-          = render 'recipe_part_fields', f: part
+      #recipe_info.tab-content
+        #main_info_tab.tab-pane.active
+          = f.input :name
+          = f.input :description
+          = f.association :complexity    
+          = f.association :cooking_time
+        #file_upload_tab.tab-pane
+          = render partial: 'file_upload', locals: {f: f}
+        #categories_tab.tab-pane
+          = render partial: 'categories', locals: {f: f}  
+        #ingredient_lists_tab.tab-pane
+          = render partial: 'ingredient_lists', locals: {f: f}
+        #recipe_parts_tab.tab-pane
+          = render partial: 'recipe_parts', locals: {f: f}
       
-      #add_new_part.links
-        = link_to_add_association 'Добавить шаг', f, :recipe_parts
-      = f.input :is_draft, as: :boolean
-      = f.input :is_checked
+      
+      = f.input :is_draft, as: :boolean, wrapper: :horizontal_form
+      = f.input :is_checked, wrapper: :horizontal_form
 
-      = f.button :submit, class: 'btn-primary'
-    
-
-
-/= select_tag :category_id, nested_options(Category.all), multiple: true, class: 'form-control'
-/= f.input :categories do
-/  = f.select :categories, nested_options(Category.all)
-
-/   /= f.collection_radio_buttons :complexity, [[true, 'Yes'] ,[false, 'No']], :first, :last
-/   h5: strong Сложность приготовления
-/   .btn-group data-toggle="buttons" 
-/     label.btn.btn-default
-/       input#option1 name="recipe[complexity]" type="radio" value="1" 
-/         | Очень легко        
-/     label.btn.btn-default
-/       input#option1 name="recipe[complexity]" type="radio" value="2" 
-/         | Легко
-/     label.btn.btn-default
-/       input#option2 name="recipe[complexity]" type="radio" value="3"
-/         | Средне
-/     label.btn.btn-default
-/       input#option3 name="recipe[complexity]" type="radio" value="4"
-/         | Сложно
-/     label.btn.btn-default
-/       input#option3 name="recipe[complexity]" type="radio" value="5"
-/         | Мастер-шеф
+      = f.button :submit, class: 'btn btn-primary'

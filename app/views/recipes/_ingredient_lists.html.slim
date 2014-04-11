@@ -1,0 +1,20 @@
+h4: strong Список ингредиентов
+#add_new_list.links
+  = link_to_add_association 'Добавить новый список ингредиентов', f, :ingredient_lists, data: {association_insertion_node:"#ingredient_lists", 
+    association_insertion_method: :append}
+
+ul#search_ingredient
+
+ul#pageTab.nav.nav-tabs
+  - @recipe.ingredient_lists.each_with_index do |list, index|
+    li class="#{'in active' if index==0}"
+      a.link-tab href="#page#{list.id ? list.id : "1"}"
+        - if list.name.blank?
+          | Без названия
+        - else
+          = list.name                
+        button class="close" ×      
+
+#ingredient_lists.tab-content
+  = f.simple_fields_for :ingredient_lists do |list|
+    = render 'ingredient_list_fields', f: list

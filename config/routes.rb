@@ -12,12 +12,13 @@ Cookbook::Application.routes.draw do
 
       post :rebuild
       post :expand_node
+      post :nested
     end
   end
 
   resources :recipe_parts
 
-  resources :recipes
+  resources :recipes 
 
   resources :ingredient_lists
 
@@ -38,6 +39,9 @@ Cookbook::Application.routes.draw do
   # Example of regular route:
   get '/search_ingredient' => 'ingredients#search_ingredient'
   post '/search_ingredient' => 'ingredients#search_ingredient'
+
+  # get '/nested_categories' =>  'recipes#nested_categories'
+  # post '/nested_categories' => 'recipes#nested_categories'
   # Example of named route that can be invoked with purchase_url(id: product.id)
   #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase
 

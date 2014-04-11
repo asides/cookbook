@@ -18,14 +18,13 @@ ru:
         password_confirmation: 'Подтверждение пароля'
         remember_me: 'Запомнить меня'
       recipe:
-        new:
-          name: 'Название'
-          description: 'Описание'
-          image: 'Главная картинка'
-          complexity: 'Сложность приготовления'
-          cooking_time: 'Время приготовления'
-          is_draft: 'Сохранить как черновик'
-          is_checked: 'Это проверенный рецепт'
+        name: 'Название'
+        description: 'Описание'
+        image: 'Главная картинка'
+        complexity: 'Сложность приготовления'
+        cooking_time: 'Время приготовления'
+        is_draft: 'Сохранить как черновик'
+        is_checked: 'Это проверенный рецепт'
     # hints:
     #   defaults:
     #     username: 'User name to sign in.'

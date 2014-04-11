@@ -1,0 +1,6 @@
+#categories
+  = f.simple_fields_for :recipes_categories do |rc|
+    = render 'recipes_category_fields', f: rc      
+       
+  #add_new_categories.links
+   = link_to_add_association 'Добавить категорию', f, :recipes_categories, class: 'btn btn-info'

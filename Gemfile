@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.4'
-gem 'rails-i18n'
+#gem 'rails-i18n'
 
 
 # Use sqlite3 as the database for Active Record
@@ -46,7 +46,7 @@ end
 # gem 'capistrano', group: :development
 
 # Use debugger
-# gem 'debugger', group: [:development, :test]
+gem 'debugger', group: [:development, :test]
 
 gem 'puma', group: :production
 
@@ -71,7 +71,7 @@ gem 'slim-rails'
 gem 'bootstrap-sass', '~> 3.1.1'
 gem "select2-rails"
 
-gem 'awesome_nested_set'
+gem 'awesome_nested_set', '~> 3.0.0.rc.3'
 gem "the_sortable_tree", github: 'the-teacher/the_sortable_tree'
 
 group :development do
@@ -83,9 +83,12 @@ group :development do
 
     gem 'guard-livereload', require: false
     gem 'awesome_print'
+    
+    gem 'rb-readline'
     gem 'pry', github: 'pry/pry', branch: 'master'
     gem 'pry-theme'
     gem 'pry-rails'
+    
     gem 'quiet_assets'
     gem 'railroady'
     gem 'annotate', :git => 'git://github.com/ctran/annotate_models.git'

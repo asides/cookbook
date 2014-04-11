@@ -4,6 +4,9 @@
 
 # On Document Load Ready
 ready = ->
+
+
+
   console.log("start")
   addTab = (item) ->
     pageId = new Date().getTime()
