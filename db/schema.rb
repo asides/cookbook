@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140407205815) do
+ActiveRecord::Schema.define(version: 20140412092331) do
 
   create_table "categories", force: true do |t|
     t.string   "title"
@@ -41,14 +41,14 @@ ActiveRecord::Schema.define(version: 20140407205815) do
 
   create_table "complexities", force: true do |t|
     t.string   "title"
-    t.integer  "order"
+    t.integer  "sort_order"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "cooking_times", force: true do |t|
     t.string   "title"
-    t.integer  "order"
+    t.integer  "sort_order"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

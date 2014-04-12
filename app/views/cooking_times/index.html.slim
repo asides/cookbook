@@ -13,7 +13,7 @@ table
     - @cooking_times.each do |cooking_time|
       tr
         td = cooking_time.title
-        td = cooking_time.order
+        td = cooking_time.sort_order
         td = link_to 'Show', cooking_time
         td = link_to 'Edit', edit_cooking_time_path(cooking_time)
         td = link_to 'Destroy', cooking_time, data: {:confirm => 'Are you sure?'}, :method => :delete

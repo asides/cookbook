@@ -11,7 +11,7 @@ table
   - @complexities.each do |complexity|
     tr
       td = complexity.title
-      td = complexity.order
+      td = complexity.sort_order
       td = link_to 'Show', complexity
       td = link_to 'Edit', edit_complexity_path(complexity)
       td = link_to 'Destroy', complexity, data: {:confirm => 'Are you sure?'}, :method => :delete

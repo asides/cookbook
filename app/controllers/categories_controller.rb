@@ -20,9 +20,6 @@ class CategoriesController < ApplicationController
 
   def nested
     @categories = @category.children.select('id, title')
-    # @root = Category.find params[:id]
-    # @categories = @root.self_and_descendants.nested_set.select('id, title, parent_id').limit(15)
-    #render json: @category.children.select('id, title')
     render 'categories/nested', layout: false
   end
 

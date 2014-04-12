@@ -8,5 +8,5 @@
 		- cat=Category.find cid
 		= cat.self_and_ancestors.map(&:title).join " >> "
 	- else
-		= select_tag '', options_from_collection_for_select(Category.where(depth: 0), "id", "title"), { include_blank: true, id: '' }
+		= select_tag '', options_from_collection_for_select(Category.roots, "id", "title"), { include_blank: true, id: '' }
 		= f.hidden_field :category_id, class: 'category_id'

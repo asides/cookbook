@@ -1,22 +1,26 @@
 .row
-  .col-md-10
-    = simple_form_for @recipe do |f|
+  = simple_form_for @recipe do |f|
 
-      = f.error_notification
-      
-      ul.nav.nav-pills
+    = f.error_notification
+    .col-md-2
+      ul.nav.nav-pills.nav-stacked
         li.active: a data-toggle="tab" href="#main_info_tab"        Основная информация
-        li:        a data-toggle="tab" href="#file_upload_tab"      Главное фото
+        li:        a data-toggle="tab" href="#file_upload_tab"      Фото
         li:        a data-toggle="tab" href="#categories_tab"       Категории
         li:        a data-toggle="tab" href="#ingredient_lists_tab" Ингредиенты
         li:        a data-toggle="tab" href="#recipe_parts_tab"     Пошаговый рецепт
-
+    .col-md-10
       #recipe_info.tab-content
+        
         #main_info_tab.tab-pane.active
           = f.input :name
+          
           = f.input :description
-          = f.association :complexity    
-          = f.association :cooking_time
+          
+          = f.association :complexity, collection: Complexity.all.order('sort_order ASC'), prompt: "Сложность"
+
+          = f.association :cooking_time, collection: CookingTime.all.order('sort_order ASC'), prompt: "Время приготовления"
+        
         #file_upload_tab.tab-pane
           = render partial: 'file_upload', locals: {f: f}
         #categories_tab.tab-pane
@@ -25,9 +29,8 @@
           = render partial: 'ingredient_lists', locals: {f: f}
         #recipe_parts_tab.tab-pane
           = render partial: 'recipe_parts', locals: {f: f}
-      
-      
+    
+    
       = f.input :is_draft, as: :boolean, wrapper: :horizontal_form
       = f.input :is_checked, wrapper: :horizontal_form
-
       = f.button :submit, class: 'btn btn-primary'

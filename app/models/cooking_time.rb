@@ -12,5 +12,5 @@
 class CookingTime < ActiveRecord::Base
 	has_many :recipes
 	validates :title, presence: true,length: { minimum: 2 }
-	validates :order, uniqueness: true, format: { with: /\A[0-9]\Z/ }
+	validates :sort_order, uniqueness: true, format: { with: /\A[0-9]\Z/ }
 end
