@@ -18,8 +18,9 @@
           = f.input :description
           .row
             = f.association :complexity, collection: Complexity.all.order('sort_order ASC'), wrapper: :horizontal_file_input
-          .row
-            = f.association :cooking_time, collection: CookingTime.all.order('sort_order ASC'), wrapper: :horizontal_file_input
+          .row            
+            /= f.association :cooking_time, collection: CookingTime.all.order('sort_order ASC'), wrapper: :horizontal_file_input
+            = f.input :cook_time, wrapper: :horizontal_file_input
         
         #file_upload_tab.tab-pane
           = render partial: 'file_upload', locals: {f: f}

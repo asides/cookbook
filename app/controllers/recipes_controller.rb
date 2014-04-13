@@ -76,7 +76,7 @@ class RecipesController < ApplicationController
     respond_to do |format|
       
       if @recipe.update(recipe_params)
-        format.html { redirect_to edit_recipe_path(@recipe), notice: 'Recipe was successfully updated.' }
+        format.html { redirect_to recipes_url, notice: 'Recipe was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
@@ -104,7 +104,8 @@ class RecipesController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def recipe_params
       
-      params.require(:recipe).permit(:name, {category_ids: []}, :description, :image, :image_cache, :remove_image, :complexity_id, :cooking_time_id, :is_draft, :is_checked, 
+      params.require(:recipe).permit(:name, :description, :image, :image_cache, :remove_image, 
+        :cook_time, :complexity_id, :cooking_time_id, :is_draft, :is_checked, {category_ids: []},
         recipes_categories_attributes: [:id, :category_id, :_destroy],
         categories_attributes: [:id, :title, :_destroy], 
         recipe_parts_attributes: [:id, :image, :remove_image, :image_cache, :description, :_destroy], 

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140412092331) do
+ActiveRecord::Schema.define(version: 20140413170854) do
 
   create_table "categories", force: true do |t|
     t.string   "title"
@@ -111,6 +111,7 @@ ActiveRecord::Schema.define(version: 20140412092331) do
     t.datetime "updated_at"
     t.integer  "complexity_id"
     t.integer  "cooking_time_id"
+    t.time     "cook_time"
   end
 
   add_index "recipes", ["complexity_id"], name: "index_recipes_on_complexity_id"
