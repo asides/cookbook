@@ -5,9 +5,6 @@
 # On Document Load Ready
 ready = ->
 
-
-
-  console.log("start")
   addTab = (item) ->
     pageId = new Date().getTime()
     
@@ -40,9 +37,9 @@ ready = ->
     queryTokenizer: Bloodhound.tokenizers.whitespace
     limit: 12
     prefetch:
-      url: '/search_ingredient'
+      url: '/search_ingredient.json'
       ttl: '1'
-      filter: (list) ->       
+      filter: (list) ->
         $.map list, (ingr) ->
           name: ingr
   )
@@ -88,50 +85,3 @@ ready = ->
 
 $(document).ready(ready)
 $(document).on('page:load', ready)
-
-
-
-
-# $ ->
-	
-#   toggleAddLink = ->
-#     $addLink.toggle fieldsCount <= maxFieldsCount
-#     return
-  
-#   $("#idr .tab-pane:first").attr({class: 'active fields tab-pane', id: 'ingr_1'})
-#   $(document).on "click", "button.del_list", ->
-
-#   	target_field = $(this).parent("a").attr('href')
-
-#   	$(target_field+"a.del_list").click
-#   	#$(this).parents("li").hide()
-
-#   fieldsCount = undefined
-#   maxFieldsCount = 99
-  
-#   $addLink = $("a.add_nested_fields")
-  
-#   $(document).on "nested:fieldAdded", ->
-#     fieldsCount += 1
-
-#     # new_li = $("li.adding_new_list").before("<li><a data-toggle='tab' href='#ingr_"+fieldsCount+"'>Ингредиенты</a></li>")
-    
-#     # $("#idr .tab-pane:last").attr('id','ingr_'+fieldsCount)
-#     #new_li.html("<a href='#'>Ингредиенты</a>")
-
-#     # if fieldsCount > 1
-#     # 	$("form .fields")
-    
-#     toggleAddLink()
-#     return
-
-#   $(document).on "nested:fieldRemoved", ->
-#     fieldsCount -= 1
-#     toggleAddLink()
-#     return
-
-  
-#   # count existing nested fields after page was loaded
-#   fieldsCount = $("form .fields").length
-#   toggleAddLink()
-#   return

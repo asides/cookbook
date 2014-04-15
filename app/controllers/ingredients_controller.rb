@@ -2,7 +2,7 @@ class IngredientsController < ApplicationController
   before_action :set_ingredient, only: [:show, :edit, :update, :destroy]
 
   def search_ingredient
-    render json: Ingredient.select(:name).map {|r| r.name}
+    render json: Ingredient.select(:name).map(&:name)
   end
   # GET /ingredients
   # GET /ingredients.json
